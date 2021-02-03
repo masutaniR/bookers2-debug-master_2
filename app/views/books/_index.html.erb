@@ -5,6 +5,7 @@
       <th>Title</th>
       <th>Opinion</th>
       <th></th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td>
           <%= render 'favorites/favorite_button', book: book %>
         </td>
+        <td>コメント数:<%= book.book_comments.count %></td>
       </tr>
     <% end %>
   </tbody>
