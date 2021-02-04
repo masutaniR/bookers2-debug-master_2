@@ -10,18 +10,14 @@
   </tr>
   <tr>
     <th>following</th>
-    <th class="following-count-<%= user.id %>">
-      <%= link_to following_user_path(user) do %>
-        <%= render 'users/following_count', user: user %>
-      <% end %>
+    <th id="following-link-<%= user.id %>">
+      <%= render 'users/following_link', user: user %>
     </th>
   </tr>
   <tr>
     <th>followers</th>
-    <th class="followers-count-<%= user.id %>">
-      <%= link_to followers_user_path(user) do %>
-        <%= render 'users/followers_count', user: user %>
-      <% end %>
+    <th id="followers-link-<%= user.id %>">
+      <%= render 'users/followers_link', user: user %>
     </th>
   </tr>
 </table>
