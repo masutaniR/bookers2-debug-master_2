@@ -16,10 +16,12 @@
         <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
         <td><%= user.name %></td>
         <td>
-          フォロー数:<%= user.followings.count %>
+          フォロー数:
+          <span class="following-count-<%= user.id %>"><%= render 'users/following_count', user: user %></span>
         </td>
         <td>
-          フォロワー数:<%= user.followers.count %>
+          フォロワー数:
+          <span class="followers-count-<%= user.id %>"><%= render 'users/followers_count', user: user %></span>
         </td>
         <td class="follow-button-<%= user.id %>">
         <% if current_user != user %>

@@ -9,12 +9,20 @@
 	  <th><%= user.introduction %></th>
   </tr>
   <tr>
-    <th>follows</th>
-    <th><%= link_to user.followings.count, followings_user_path(user) %></th>
+    <th>following</th>
+    <th class="following-count-<%= user.id %>">
+      <%= link_to following_user_path(user) do %>
+        <%= render 'users/following_count', user: user %>
+      <% end %>
+    </th>
   </tr>
   <tr>
     <th>followers</th>
-    <th><%= link_to user.followers.count, followers_user_path(user) %></th>
+    <th class="followers-count-<%= user.id %>">
+      <%= link_to followers_user_path(user) do %>
+        <%= render 'users/followers_count', user: user %>
+      <% end %>
+    </th>
   </tr>
 </table>
 
@@ -23,7 +31,7 @@
     <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
   <% else %>
   <div class="follow-button-<%= user.id %>">
-    <%= render 'users/favorite_button', user: user %>
+    <%= render 'users/follow_button', user: user %>
   </div>
   <% end %>
 </div>
