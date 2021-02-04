@@ -11,5 +11,11 @@
 </table>
 
 <div class='row'>
-  <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+  <% if user == current_user %>
+    <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+  <% else %>
+  <div class="favotite-button">
+    <%= render 'users/favorite_button', user: user %>
+  </div>
+  <% end %>
 </div>
