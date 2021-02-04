@@ -8,13 +8,21 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+  <tr>
+    <th>follows</th>
+    <th><%= link_to "#{user.followings.count}", followings_user_path(user) %></th>
+  </tr>
+  <tr>
+    <th>followers</th>
+    <th><%= link_to "#{user.followers.count}", followers_user_path(user) %></th>
+  </tr>
 </table>
 
 <div class='row'>
   <% if user == current_user %>
     <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
   <% else %>
-  <div class="favotite-button">
+  <div id="favotite-button-<%= user.id %>">
     <%= render 'users/favorite_button', user: user %>
   </div>
   <% end %>
