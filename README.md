@@ -1,4 +1,4 @@
-[![Rails-5.2.4.3](https://img.shields.io/badge/Rails-5.2.4.3-orange)]
+![Rails-5.2.4.3](https://img.shields.io/badge/Rails-5.2.4.3-orange)
 # Bookers2
 
 これはDMM WEBCAMPの課題でつくった本の感想投稿サービスです。
