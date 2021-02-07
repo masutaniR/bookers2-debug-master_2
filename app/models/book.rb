@@ -14,13 +14,13 @@ class Book < ApplicationRecord
 	# 検索用メソッド
 	def self.search_for(content, method)
 	  if method == 'perfect'
-	  	Book.where(title: content)
+	  	Book.where('title LIKE? OR body LIKE?', "#{content}", "#{content}")
 	  elsif method == 'forward'
-	  	Book.where('title LIKE?', "#{content}%")
+	  	Book.where('title LIKE? OR body LIKE?', "#{content}%", "#{content}%")
 	  elsif method == 'backward'
-	  	Book.where('title LIKE?', "%#{content}")
+	  	Book.where('title LIKE? OR body LIKE?', "%#{content}", "%#{content}")
 	  else
-	  	Book.where('title LIKE?', "%#{content}%")
+	  	Book.where('title LIKE? OR body LIKE?', "%#{content}%", "%#{content}%")
 	  end
 	end
 end
