@@ -17,11 +17,11 @@
         <td><%= user.name %></td>
         <td>
           フォロー数:
-          <span class="following-count-<%= user.id %>"><%= render 'users/following_count', user: user %></span>
+          <span class="following-count-<%= user.id %>"><%= user.following.count %></span>
         </td>
         <td>
           フォロワー数:
-          <span class="followers-count-<%= user.id %>"><%= render 'users/followers_count', user: user %></span>
+          <span class="followers-count-<%= user.id %>"><%= user.followers.count %></span>
         </td>
         <td class="follow-button-<%= user.id %>">
         <% if current_user != user %>

@@ -11,13 +11,13 @@
   <tr>
     <th>following</th>
     <th id="following-link-<%= user.id %>">
-      <%= render 'users/following_link', user: user %>
+      <%= link_to user.following.count, following_user_path(user) %>
     </th>
   </tr>
   <tr>
     <th>followers</th>
     <th id="followers-link-<%= user.id %>">
-      <%= render 'users/followers_link', user: user %>
+      <%= link_to user.followers.count, followers_user_path(user) %>
     </th>
   </tr>
 </table>
