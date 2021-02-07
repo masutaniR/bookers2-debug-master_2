@@ -1,24 +1,31 @@
-# README
+[![Rails-5.2.4.3](https://img.shields.io/badge/Rails-5.2.4.3-orange)]
+# Bookers2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+これはDMM WEBCAMPの課題でつくった本の感想投稿サービスです。
 
-Things you may want to cover:
+### 機能一覧
 
-* Ruby version
+* ログイン
+* 投稿
+* コメント
+* いいね
+* フォロー
+* 検索（ユーザー・投稿）
 
-* System dependencies
+etc...
 
-* Configuration
+随時機能追加しています。
 
-* Database creation
 
-* Database initialization
+### 開発環境
 
-* How to run the test suite
+* Ruby 2.6.3
+* Ruby on Rails 5.2.4.3
+* Bootstrap 4.5(Gem)
+* jQuery(Gem)
+* Font Awesome(Gem)
 
-* Services (job queues, cache servers, search engines, etc.)
+### 作成者
 
-* Deployment instructions
-
-* ...
+* [masutaniR](https://github.com/masutaniR "masutaniR")
+* DMM WEBCAMP 難波校
