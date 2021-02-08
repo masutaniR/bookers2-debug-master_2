@@ -61,8 +61,8 @@ Rails.application.configure do
 
 # 開発環境のメール送信はletter_oener_webを使う
   if Rails.env.production?
-    ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.smtp_settings = {
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
       domain: 'gmail.com',
       port: 587,
@@ -77,6 +77,6 @@ Rails.application.configure do
     config.action_mailer.delivery_method = :letter_opener_web
     config.action_mailer.perform_deliveries = true
   else
-    ActionMailer::Base.delivery_method = :test
+    config.action_mailer.delivery_method = :test
   end
 end
