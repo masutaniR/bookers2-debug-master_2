@@ -37,3 +37,13 @@ div {
     margin-bottom: 10px;
   }
 }
+
+.chat-table {
+  @extend .table !optional;
+  td {
+    padding: 3px;
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
