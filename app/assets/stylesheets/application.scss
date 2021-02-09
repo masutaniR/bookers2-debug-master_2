@@ -38,6 +38,8 @@ div {
   }
 }
 
+// チャット
+
 .chat-table {
   @extend .table !optional;
   td {
@@ -45,5 +47,19 @@ div {
     p {
       margin-bottom: 0;
     }
+  }
+}
+
+.message {
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 3px 10px;
+  &.other-user-message {
+    background-color: #F2F2F2;
+    text-align: left;
+  }
+  &.current-user-message {
+    background-color: #A9F5BC;
+    text-align: right;
   }
 }

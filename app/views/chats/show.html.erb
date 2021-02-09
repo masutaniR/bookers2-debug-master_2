@@ -20,7 +20,7 @@
             <% if chat.user_id != current_user.id %>
             <tr>
               <td>
-                <p style="text-align: left;">
+                <p class="message other-user-message">
                   <%= chat.message %>
                 </p>
               </td>
@@ -30,7 +30,7 @@
             <tr>
               <td></td>
               <td>
-                <p style="text-align: right;">
+                <p class="message current-user-message">
                   <%= chat.message %>
                 </p>
               </td>
