@@ -13,6 +13,23 @@
           <%= f.email_field :email, autofocus: true, class: "email" %>
         </div>
         <div class="field">
+          <%= f.label :postal_code %><br>
+          <%= f.text_field :postal_code %>
+        </div>
+        <div class="field">
+          <%= f.label :prefecture_code %><br>
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all,
+                                  :name, :name, { prompt: '---------------' } %>
+        </div>
+        <div class="field">
+          <%= f.label :city %><br>
+          <%= f.text_field :city %>
+        </div>
+        <div class="field">
+          <%= f.label :street %><br>
+          <%= f.text_field :street %>
+        </div>
+        <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
