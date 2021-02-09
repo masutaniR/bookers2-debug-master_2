@@ -41,8 +41,8 @@
       </table>
 
       <%= form_with model: @chat do |f| %>
-        <%= render 'layouts/errors', obj: @chat %>
-        <%= f.text_field :message %>
+      <div id="message-error"></div>
+        <%= f.text_field :message, class: 'form-control' %>
         <%= f.hidden_field :room_id %>
       <% end %>
 
