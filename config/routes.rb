@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'chats/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -16,6 +15,8 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'home/about' => 'homes#about'
   get '/search' => 'search#search'
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 
   # 開発環境で送信したメールを /letter_opener で確認する
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
