@@ -19,7 +19,7 @@
           <% @chats.each do |chat| %>
             <% if chat.user_id != current_user.id %>
             <tr>
-              <td>
+              <td class="message-box">
                 <p class="message other-user-message">
                   <%= chat.message %>
                 </p>
@@ -29,7 +29,7 @@
             <% else %>
             <tr>
               <td></td>
-              <td>
+              <td class="message-box">
                 <p class="message current-user-message">
                   <%= chat.message %>
                 </p>

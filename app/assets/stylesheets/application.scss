@@ -43,7 +43,11 @@ div {
 .chat-table {
   @extend .table !optional;
   td {
+    height: 36px;
     padding: 3px;
+    &.message-box {
+      position: relative;
+    }
     p {
       margin-bottom: 0;
     }
@@ -54,12 +58,14 @@ div {
   font-size: 16px;
   border-radius: 5px;
   padding: 3px 10px;
+  position: absolute;
+  top: 3px;
   &.other-user-message {
     background-color: #F2F2F2;
-    text-align: left;
+    left: 0;
   }
   &.current-user-message {
     background-color: #A9F5BC;
-    text-align: right;
+    right: 0;
   }
 }
