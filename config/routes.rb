@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  get '/users/:id/destroy_confirm' => 'users#destroy_confirm', as: 'user_destroy_confirm'
+  get '/users/destroy_confirm' => 'users#destroy_confirm', as: 'user_destroy_confirm'
   resources :users,only: [:show,:index,:edit,:update] do
     member do
       get :following, :followers

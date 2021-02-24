@@ -36,10 +36,6 @@ class UsersController < ApplicationController
   end
 
   def destroy_confirm
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to current_user
-    end
   end
 
   private
