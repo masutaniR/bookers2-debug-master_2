@@ -33,7 +33,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user.destroy
       redirect_to root_path, notice: '退会しました'
     else
-      redirect_to edit_user_path(@user), alert: 'パスワードが違います'
+      redirect_to edit_user_path(@user)
+      flash[:alert] = 'パスワードが違います'
     end
   end
 

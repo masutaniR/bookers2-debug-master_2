@@ -12,10 +12,17 @@
     <%= render 'layouts/header' %>
       <main>
         <% flash.each do |key, value| %>
-          <p class="alert alert-success my-1">
-            <%= value %>
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-          </p>
+          <% if key == 'notice' %>
+            <p class="alert alert-success my-1">
+              <%= value %>
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </p>
+          <% else %>
+            <p class="alert alert-danger my-1">
+              <%= value %>
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </p>
+          <% end %>
         <% end %>
         <%= yield %>
       </main>
