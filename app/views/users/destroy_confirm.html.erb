@@ -1,0 +1,19 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+      <h2>本当に退会しますか？</h2>
+      <p>退会するとデータの復元はできません。</p>
+      <p>退会手続を決行する場合は、パスワードを入力してください。</p>
+      <%= form_with model: @user, url: users_path, method: :delete, local: true do |f| %>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "password" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "退会する" ,class: 'btn btn-sm btn-primary'%>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

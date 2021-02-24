@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
+  get '/users/:id/destroy_confirm' => 'users#destroy_confirm', as: 'user_destroy_confirm'
   resources :users,only: [:show,:index,:edit,:update] do
     member do
       get :following, :followers
     end
     resource :relationships, only: [:create, :destroy]
   end
+
   resources :books do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]

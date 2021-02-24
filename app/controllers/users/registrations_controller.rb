@@ -26,9 +26,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    @user = current_user
+    if @user.valid_password?(params[:user][:password])
+      @user.destroy
+      redirect_to root_path, notice: '退会しました'
+    else
+      redirect_to edit_user_path(@user), alert: 'パスワードが違います'
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

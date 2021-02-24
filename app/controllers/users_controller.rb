@@ -35,6 +35,13 @@ class UsersController < ApplicationController
     @users = user.followers
   end
 
+  def destroy_confirm
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to current_user
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
