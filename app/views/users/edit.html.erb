@@ -9,8 +9,35 @@
         <%= f.text_field :name, class: "form-control name" %>
       </div>
      <div class="form-group">
-        <%= f.label :image %>
-        <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
+        <!--%= f.label :image %>-->
+        <!--%= f.attachment_field :profile_image, class: "form-control-file user_image" %>-->
+
+
+        <div class="image_form">
+          <div class="image_form__contents">
+            <!--ラベルでfile_fieldとicon、プレビュー画像を紐付けます-->
+            <%= f.label :image, class: 'image_label' do %>
+              <div class="prev-contents">
+                <!--既に登録されている画像があれば表示をさせます-->
+                <% if current_user.profile_image.present? %>
+                  <div class="prev-content">
+                    <%= attachment_image_tag(current_user, :profile_image, alt: "preview", class: "prev-image") %>
+                  </div>
+                <% else %>
+                  <!--既に登録されている画像がなければiconを表示させます-->
+                  <div class="no-img">
+                    <%= icon('fas', 'image', class: 'photo-icon') %>
+                  </div>
+                <% end %>
+                <!--file_fieldはdisplay: none;で隠します-->
+                <%= f.file_field :profile_image, class: 'profile-img-field mt-2' %>
+            <% end %>
+              </div>
+          </div>
+        </div>
+
+
+
       </div>
       <div class="form-group">
         <%= f.label :introduction %>
