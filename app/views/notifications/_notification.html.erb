@@ -1,0 +1,27 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<div>
+  <%= link_to visitor.name, user_path(visitor) %>さんが
+  <% case notification.action %>
+  <% when 'follow' then %>
+    <%= "あなたをフォローしました" %>
+  <% when 'like' then %>
+    <%= link_to 'あなたの投稿', notification.book %>
+    <%= "にいいねしました" %>
+  <% when 'comment' then %>
+    <% if notification.book.user_id == visited.id %>
+      <%= link_to 'あなたの投稿', notification.book %>
+    <% else %>
+      <%= link_to "#{notification.book.user.name}さんの投稿" , book_path(notification.book) %>
+    <% end %>
+    <%= "にコメントしました" %>
+    <p class="text-muted">
+      <%= BookComment.find_by(id: notification.book_comment.id)&.comment %>
+    </p>
+  <% end %>
+  <div class="small text-muted">
+    <%= time_ago_in_words(notification.created_at).upcase %>
+  </div>
+<hr>
+</div>
