@@ -24,7 +24,7 @@ class Book < ApplicationRecord
 	  	Book.where('title LIKE? OR body LIKE?', "%#{content}%", "%#{content}%")
 	  end
 	end
-	
+
 	# いいね通知
 	def create_notification_like(current_user)
 	  temp = Notification.where(["visitor_id = ? and visited_id = ? and book_id = ? and action = ?", current_user.id, user_id, id, 'like'])
@@ -40,16 +40,16 @@ class Book < ApplicationRecord
 	  	notification.save if notification.valid?
 	  end
 	end
-	
+
 	# コメント通知
 	def create_notification_comment(current_user, comment_id)
-	  temp_ids = Comment.select(:user_id).where(book_id: id).where.not(user_id: current_user.id).distinct
+	  save_notification_comment(current_user, comment_id, user_id)
+	  temp_ids = BookComment.select(:user_id).where(book_id: id).where.not(user_id: current_user.id).distinct
 	  temp_ids.each do |temp_id|
 	    save_notification_comment(current_user, comment_id, temp_id['user_id'])
 	  end
-	  save_notification_comment(current_user, comment_id, user_id) if temp_ids.blank?
 	end
-	
+
 	def save_notification_comment(current_user, comment_id, visited_id)
 	  notification = current_user.active_notifications.new(
 	  	book_id: id,
