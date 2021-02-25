@@ -24,16 +24,18 @@
 
 <div class='row'>
   <% if user == current_user %>
-    <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %><br>
-    <% if unchecked_notifications.any? %>
-      <%= link_to notifications_path do %>
-        <i class="fas fa-bell text-danger"></i>
+    <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+    <div class="btn btn-outline-secondary btn-block notice-btn">
+      <% if unchecked_notifications.any? %>
+        <%= link_to notifications_path do %>
+          <i class="far fa-bell text-secondary"></i><span class="badge badge-primary ml-2"><%= unchecked_notifications.count %></span>
+        <% end %>
+      <% else %>
+        <%= link_to notifications_path do %>
+          <i class="far fa-bell text-secondary"></i>
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to notifications_path do %>
-        <i class="far fa-bell"></i>
-      <% end %>
-    <% end %>
+    </div>
   <% else %>
   <div class="chat-link">
     <%= link_to 'チャットする', chat_path(user), class: 'btn btn-outline-success mr-2' %>

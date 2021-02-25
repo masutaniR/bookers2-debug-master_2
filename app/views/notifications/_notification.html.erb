@@ -9,6 +9,9 @@
   <% when 'like' then %>
     <%= link_to 'あなたの投稿', notification.book %>
     <%= "にいいねしました" %>
+    <p class="text-muted">
+      <%= Book.find_by(id: notification.book.id)&.body %>
+    </p>
   <% when 'comment' then %>
     <% if notification.book.user_id == visited.id %>
       <%= link_to 'あなたの投稿', notification.book %>
