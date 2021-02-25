@@ -43,7 +43,7 @@ class Book < ApplicationRecord
 	
 	# コメント通知
 	def create_notification_comment(current_user, comment_id)
-	  temp_ids = Comment.select(:user_id),where(book_id: id).where.not(user_id: current_user.id).distinct
+	  temp_ids = Comment.select(:user_id).where(book_id: id).where.not(user_id: current_user.id).distinct
 	  temp_ids.each do |temp_id|
 	    save_notification_comment(current_user, comment_id, temp_id['user_id'])
 	  end

@@ -24,7 +24,8 @@
 
 <div class='row'>
   <% if user == current_user %>
-    <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+    <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %><br>
+    <%= link_to '通知をみる', notifications_path %>
   <% else %>
   <div class="chat-link">
     <%= link_to 'チャットする', chat_path(user), class: 'btn btn-outline-success mr-2' %>
