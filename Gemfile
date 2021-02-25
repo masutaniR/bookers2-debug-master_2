@@ -72,3 +72,6 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'dotenv-rails'
 gem 'whenever', require: false
 gem 'jp_prefecture'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
