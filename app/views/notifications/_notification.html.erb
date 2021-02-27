@@ -1,7 +1,7 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 
-<div>
+<div class="<%= "unchecked" if notification.checked == false %>">
   <%= link_to visitor.name, user_path(visitor) %>さんが
   <% case notification.action %>
   <% when 'follow' then %>
@@ -24,7 +24,8 @@
     </p>
   <% end %>
   <div class="small text-muted">
-    <%= time_ago_in_words(notification.created_at).upcase %>
+    <%= time_ago_in_words(notification.created_at) %>前
   </div>
-<hr>
 </div>
+
+<hr>
